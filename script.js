@@ -3,32 +3,59 @@
 
 function game() {
 
-    const playerSelection = getPlayerChoice();
-    const computerChoice = getComputerChoice();
+    let playerScore = 0, computerScore = 0;
+    let round = 0;
+
+    while(round < 5) {
+
+        const playerSelection = getPlayerChoice();
+        const computerChoice = getComputerChoice();
+
+        let winner = playRound(playerSelection,computerChoice);
+        if(winner == "You") {
+            playerScore++;
+        }else if(winner == "Computer") {
+            computerScore++;
+        }
+
+        round++;
+        console.log("W: ", winner, " R: ",round," P: ", playerScore," C: ", computerScore); 
+    }
+
+    if(playerScore == computerScore) {
+        alert("There is a tie");
+    }else if(playerScore < computerScore) {
+        alert("The computer won");
+    }else{
+        alert("Congrats, you won!");
+    }
 
 
-
-    console.log(playRound(playerSelection,computerChoice))
+    
 
 }
 
 // to return the winner
 function playRound(playerSelection, computerChoice) {
-
+    
+    let winner = "Tie";
     let message = `There is a Tie both player chose ${playerSelection}`;
     if(playerSelection != computerChoice) {
         if(playerSelection === "rock" && computerChoice === "paper") {
                 message = "You Lose! Paper beats Rock ";
+                winner = "Computer";
         }else if(playerSelection === "scissors" && computerChoice === "rock") {
                 message = "You Lose! Rock beats Scissors";
+                winner = "Computer";
         }else if(playerSelection === "paper" && computerChoice === "scissors") {
                 message = "You Lose! Scissors beat Paper";
+                winner = "Computer";
         }else {
                 message = "You win!";
+                winner = "You";
         }
     }
-
-    return message;
+    return winner;
   }
 
 // to get and return the player choice
