@@ -1,0 +1,45 @@
+.display-winner {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+}
+
+.score-board{
+    display: flex;
+    gap: 20px;
+    text-align: center;
+}
+
+.score-board span {
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+
+
+
+  .game-btn {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1.9rem;
+  }
+
+  .game-btn:hover {
+      background-color: #0056b3;
+  }
+
+  .game-btn:active {
+      background-color: #00397a;
+      transform: translateY(2px);
+  }
